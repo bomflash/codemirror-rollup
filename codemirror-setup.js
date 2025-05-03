@@ -32830,8 +32830,8 @@
   ]))];
 
   //export properties for public use
-  window.EditorView = EditorView;
   window.StateField = StateField;
+  window.EditorView = EditorView;
   window.EditorState = EditorState;
   window.autocompletion = autocompletion;
   window.basicSetup = basicSetup;
@@ -32840,6 +32840,7 @@
   window.lintGutter = lintGutter;
   window.setDiagnostics = setDiagnostics;
   window.linter = linter;
+  window.openSearchPanel = openSearchPanel;
 
   //export { setupCodeMirror }; // Also export for potential module usage
 
