@@ -2,6 +2,8 @@ import { EditorState, StateField } from "@codemirror/state";
 import { EditorView, keymap, lineNumbers, highlightActiveLineGutter, highlightSpecialChars, drawSelection, dropCursor, rectangularSelection, crosshairCursor, highlightActiveLine } from "@codemirror/view";
 import { defaultKeymap, history, historyKeymap, indentWithTab } from "@codemirror/commands";
 import { cpp } from "@codemirror/lang-cpp";
+import { json, jsonParseLinter } from "@codemirror/lang-json";
+//import { jsonSchemaLinter, jsonSchemaHover } from "codemirror-json-schema";
 import { dracula } from "@uiw/codemirror-theme-dracula"; // Changed from oneDark to dracula
 import { autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap } from "@codemirror/autocomplete";
 import { searchKeymap, highlightSelectionMatches, openSearchPanel } from "@codemirror/search";
@@ -52,6 +54,10 @@ window.EditorState = EditorState;
 window.autocompletion = autocompletion;
 window.basicSetup = basicSetup;
 window.cpp = cpp;
+window.json = json;
+window.jsonParseLinter = jsonParseLinter;
+// window.jsonSchemaLinter = jsonSchemaLinter;
+// window.jsonSchemaHover = jsonSchemaHover;
 window.dracula = dracula; // Changed from oneDark to dracula
 window.lintGutter = lintGutter;
 window.setDiagnostics = setDiagnostics;
