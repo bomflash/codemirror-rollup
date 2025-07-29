@@ -7,6 +7,12 @@ import { autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap } 
 import { searchKeymap, highlightSelectionMatches, openSearchPanel } from "@codemirror/search";
 import { bracketMatching, indentOnInput, syntaxHighlighting, defaultHighlightStyle, foldGutter, foldKeymap } from "@codemirror/language"; 
 import { lintKeymap, linter, lintGutter, setDiagnostics } from "@codemirror/lint"; 
+
+import { languages } from "@codemirror/language-data";
+import { Table } from "@lezer/markdown"; 
+import richMarkdoc from "../rich-markdoc/dist/index.js";
+import markConfig from "../rich-markdoc/dist/markConfig.js";
+
 // Basic setup extensions
 const basicSetup = [
   lineNumbers(),
@@ -51,5 +57,28 @@ window.lintGutter = lintGutter;
 window.setDiagnostics = setDiagnostics;
 window.linter = linter;
 window.openSearchPanel = openSearchPanel;
+window.languages = languages;
+window.Table = Table; // Added for potential use in the editor
+window.richMarkdoc = richMarkdoc; // Added for potential use in the editor
+window.markConfig = markConfig; // Export the markConfig for use in the editor
+
+// Add commands and view components to window
+window.keymap = keymap;
+window.drawSelection = drawSelection;
+window.rectangularSelection = rectangularSelection;
+window.highlightActiveLine = highlightActiveLine;
+window.defaultKeymap = defaultKeymap;
+window.cmHistory = history; // Renamed from "history" to "cmHistory" to avoid conflict with window.history
+window.historyKeymap = historyKeymap;
+window.indentWithTab = indentWithTab;
+
+// Create a preconfigured rich-markdoc instance with the markConfig
+window.richMarkdocWithConfig = () => richMarkdoc({
+  lezer: {},
+  markdoc: markConfig
+});
+
+window.syntaxHighlighting = syntaxHighlighting;
+window.defaultHighlightStyle = defaultHighlightStyle;
 
 //export { setupCodeMirror }; // Also export for potential module usage

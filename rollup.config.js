@@ -5,9 +5,9 @@ import babel from '@rollup/plugin-babel';
 export default {
   input: 'src/codemirror-setup.js',
   output: {
-    file: 'codemirror-setup.js',
-    format: 'iife', // Immediately Invoked Function Expression - suitable for <script> tags
-    name: 'codemirrorSetup' // Optional: a global variable name for the bundle
+    dir: 'dist',
+    format: 'es', // Changed from 'iife' to 'es' to support code-splitting
+    sourcemap: true
   },
   plugins: [
     nodeResolve(), // Helps Rollup find modules in node_modules
